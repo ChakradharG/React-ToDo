@@ -1,0 +1,147 @@
+$primary: #b388ff;
+$light: #e7b9ff;
+$dark: #805acb;
+$fontSize: 1rem;
+
+@mixin animate($dur: 0.3s, $color0: black, $color1: white, $color2: $dark) {
+	transition: $dur ease;
+	color: $color0;
+	background-color: $color2;
+
+	&:hover, &:focus {
+		color: $color2;
+		background-color: $color1;
+	}
+}
+
+%flex-disp {
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+}
+
+%border-outline-none {
+	border: none;
+	outline: none;
+}
+
+body {
+	background: linear-gradient(to right, $light, $primary) no-repeat fixed center;
+	min-height: 100vh;
+}
+
+header {
+	@extend %flex-disp;
+	min-height: 20vh;
+	font-size: 1.3rem;
+}
+
+#form-container {
+	@extend %flex-disp;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+
+	&-track {
+		background-color: $primary
+	}
+
+	&-thumb {
+		background-color: $dark;
+	}
+}
+
+form {
+	@extend %flex-disp;
+	justify-content: space-between;
+	width: 60%;
+	margin: 24px 0px;
+	input {
+		height: 3rem;
+		@extend %border-outline-none;
+		font-size: $fontSize;
+		padding: 8px;
+		background: white;
+		width: 40vw;
+	}
+}
+
+select {
+	@extend %border-outline-none;
+	cursor: pointer;
+	height: 3rem;
+	padding: 8px;
+	font-size: $fontSize;
+	@include animate($color1: $dark, $color2: white);
+}
+
+button {
+	@extend %border-outline-none;
+	cursor: pointer;
+	height: 3rem;
+	font-size: $fontSize;
+	width: 2.5rem;
+	padding: 8px;
+	@include animate($color1: white, $color2: $dark);
+	
+}
+
+
+#todo-list {
+	@extend %flex-disp;
+	flex-direction: column;
+	list-style: none;
+}
+
+.todo {
+	@extend %flex-disp;
+	justify-content: space-between;
+	width: 60%;
+	margin: 0.5rem;
+	color: black;
+	background-color: white;
+	font-size: $fontSize;
+	transition: 1s ease;
+
+	li {
+		flex: 1;
+		padding: 0px 8px;
+		transition: 0.3s ease;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+.checked {
+	text-decoration: line-through;
+	color: #9c9c9c;
+}
+
+@media only screen and (max-width: 600px) {
+	form {
+		width: 85%;
+		flex-direction: column;
+
+		input {
+			width: calc(100% - 3rem);
+		}
+		.todo-btn {
+			height: 3rem;
+			width: 3rem;
+		}
+	}
+	.todo {
+		width: 85%;
+	}
+	
+	#todo-list > div:last-child {
+		margin-bottom: 4rem;
+	}
+	#container {
+		width: 100%;
+		position: fixed;
+		bottom: 0;
+		box-shadow: 0px 10px 50px black;
+	}
+}

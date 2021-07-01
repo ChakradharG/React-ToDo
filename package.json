@@ -1,0 +1,35 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "A simple, installable todo list app built using react",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && npx pwa-asset-generator ./public/logo.png ./build/icons && workbox generateSW workbox-config.js",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "deploy": "node main.js",
+    "style": "sass --watch src/sass:src"
+  },
+  "keywords": [],
+  "author": "ChakradharG",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^4.0.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

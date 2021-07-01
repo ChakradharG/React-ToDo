@@ -1,0 +1,24 @@
+{
+	"name": "ToDo",
+	"short_name": "ToDo",
+	"start_url": "/",
+	"display": "standalone",
+	"description": "A simple todo list app built using react",
+	"icons": [
+		{
+		  "src": "icons/manifest-icon-192.png",
+		  "sizes": "192x192",
+		  "type": "image/png",
+		  "purpose": "maskable any"
+		},
+		{
+		  "src": "icons/manifest-icon-512.png",
+		  "sizes": "512x512",
+		  "type": "image/png",
+		  "purpose": "maskable any"
+		}
+	],
+	"theme_color": "#805acb",
+	"background_color": "#b388ff",
+	"orientation": "portrait"
+}
